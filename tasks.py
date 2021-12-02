@@ -162,7 +162,12 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     path_to_file = str(output_dir)+"\\"+"Output File.xlsx"
-    print("Output File ; ",path_to_file)
+    if os.path.exists(path_to_file):
+        os.remove(path_to_file)
+    else:
+        print("file not exists")
+        
+    
     try:
         create_excel_file(path_to_file)
         open_the_website("https://itdashboard.gov/")
